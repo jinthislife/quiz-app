@@ -8,16 +8,18 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController, UITableViewDataSource {
+class QuestionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerLabel: UILabel!
-    private var question: String = ""
+    private var question = ""
     private var options = [String]()
+    private var selection: ((String) -> Void)? = nil
 
-    convenience init(question: String, options: [String]) {
+    convenience init(question: String, options: [String], selection: ((String) -> Void)?) {
         self.init()
         self.question = question
         self.options = options
+        self.selection = selection
     }
 
     override func viewDidLoad() {
@@ -29,8 +31,22 @@ class QuestionViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        let cell = dequeueCell(in: tableView)
+        /// I don't understand why they created separate dequeueCell(in:) func
+        /// without writing the line right below.
+        /// let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = options[indexPath.row]
         return cell
+    }
+    
+    private func dequeueCell(in tableView: UITableView) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") {
+            return cell
+        }
+        return UITableViewCell(style: .default, reuseIdentifier: "Cell")
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selection?(options[indexPath.row])
     }
 }
