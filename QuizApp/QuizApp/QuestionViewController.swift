@@ -13,9 +13,10 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var headerLabel: UILabel!
     private var question = ""
     private var options = [String]()
-    private var selection: ((String) -> Void)? = nil
-
-    convenience init(question: String, options: [String], selection: ((String) -> Void)?) {
+    private var selections = [String]()
+    private var selection: (([String]) -> Void)? = nil
+// Todo: study closure syntax. Single argument function types require parentheses, Replace '[String]' with '([String])'
+    convenience init(question: String, options: [String], selection: (([String]) -> Void)?) {
         self.init()
         self.question = question
         self.options = options
@@ -47,6 +48,19 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selection?(options[indexPath.row])
+        selection?(selectedOptions(in: tableView))
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if tableView.allowsMultipleSelection {
+            selection?(selectedOptions(in: tableView))
+        }
+    }
+    
+    func selectedOptions(in tableView: UITableView) -> [String] {
+//        guard let selectedRows = tableView.indexPathsForSelectedRows else { return [] }
+//        return selectedRows.map { options[$0.row] }
+        return tableView.indexPathsForSelectedRows?.map { options[$0.row] } ?? []
     }
 }

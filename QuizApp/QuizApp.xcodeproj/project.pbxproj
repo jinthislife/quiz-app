@@ -13,6 +13,7 @@
 		F1FA5A942340D0DA00DB3444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FA5A932340D0DA00DB3444 /* Assets.xcassets */; };
 		F1FA5A972340D0DA00DB3444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FA5A952340D0DA00DB3444 /* LaunchScreen.storyboard */; };
 		F1FA5AAD2340D1D300DB3444 /* QuestionViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA5AAC2340D1D300DB3444 /* QuestionViewControllerTest.swift */; };
+		F1FDD1872345CF7800A43167 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDD1862345CF7800A43167 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		F1FA5A9D2340D0DA00DB3444 /* QuizAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FA5AA32340D0DA00DB3444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FA5AAC2340D1D300DB3444 /* QuestionViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewControllerTest.swift; sourceTree = "<group>"; };
+		F1FDD1862345CF7800A43167 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				F1FA5A8A2340D0D900DB3444 /* AppDelegate.swift */,
+				F1FDD1862345CF7800A43167 /* SceneDelegate.swift */,
 				F1FA5A932340D0DA00DB3444 /* Assets.xcassets */,
 				F1FA5A952340D0DA00DB3444 /* LaunchScreen.storyboard */,
 				F1FA5A982340D0DA00DB3444 /* Info.plist */,
@@ -200,6 +203,7 @@
 			files = (
 				F121863023431E5A006136F5 /* QuestionViewController.swift in Sources */,
 				F1FA5A8B2340D0D900DB3444 /* AppDelegate.swift in Sources */,
+				F1FDD1872345CF7800A43167 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
